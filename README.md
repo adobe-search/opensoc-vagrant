@@ -11,7 +11,7 @@ To accomplish this, we have provided a collection of bash scripts that are orche
 
 Credit to https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1 for the inspiration for this. This project is heavily influenced by that one.
 
-## Customized Setup
+## Quick Start
  Run `vagrant up`
  Run `fab vagrant postsetup`
 
@@ -21,19 +21,6 @@ Credit to https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1 for the insp
  Hbase - localhost:60010
  #Storm UI - localhost:8080      (currently disabled)
  #Elasticsearch - localhost:9200 (currently disabled)
-
-## Quick Start
-
-If you don't want to bother with the details of the cluster, and just want to see OpenSOC, place a RPM For Oracle's JVM in `resources/` and edit `common.sh` to set `JRE_RPM` to the name of the RPM. Then run:
-
-```
-vagrant up
-fab vagrant quickstart
-```
-
-Finally, point your browser at https://localhost:8443
-
-This should get you a running OpenSOC cluster with Bro, Snort, and PCAP. If you are looking to customize the setup or run your own topologies, see the secions below on running the cluster and running an OpenSOC Topology.
 
 ## Advanced Setup
 
@@ -50,13 +37,17 @@ To get the cluster up and running, do the following:
 
 The `vagrant up` command will build the VMs for the cluster, and install all dependencies which include:
 
-* Hadoop 2.6
-* Hbase 0.98
-* Kafka 0.8.1.1
-* Zookeeper 3.4.6
-* Hive 1.2.0
-* Elasticsearch 1.5.2
-* Storm 0.9.4
+* JRE_RPM=jre-8u112-linux-x64.rpm
+* HADOOP_VERSION=hadoop-2.6.0
+* ZOOKEEPER_VERSION=zookeeper-3.4.6
+* KAFKA_SCALA_VERSION=2.9.2
+* KAFKA_VERSION_NUM=0.8.1.1
+* KAFKA_VERSION="kafka_${KAFKA_SCALA_VERSION}-${KAFKA_VERSION_NUM}"
+* STORM_VERSION=apache-storm-0.9.4
+* HBASE_VERSION_NUM=0.98.23
+* HBASE_VERSION=hbase-"${HBASE_VERSION_NUM}-hadoop2"
+* HIVE_VERSION=hive-1.2.1
+* ES_VERSION=1.5.2
 
 After this, the `fab vagrant postsetup` command will run a handful of tasks that need to occur after the cluster is running, but before it can be used. These are:
 
