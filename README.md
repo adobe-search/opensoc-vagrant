@@ -12,16 +12,17 @@ To accomplish this, we have provided a collection of bash scripts that are orche
 Credit to https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1 for the inspiration for this. This project is heavily influenced by that one.
 
 ## Quick Start
+
  Run `vagrant up`
  Run `fab vagrant postsetup`
 
- Below are endpoints for different services. See VagrantFile to see which services are enabled
+# Endpoints for different services. 
  - HDFS - localhost:50070
  - Hbase - localhost:60010
  - Storm UI - localhost:8080      (currently disabled)
  - Elasticsearch - localhost:9200 (currently disabled)
 
- Below are the componets versions: 
+# Componets versions: 
  - JRE_RPM=jre-8u112-linux-x64.rpm
  - HADOOP_VERSION=hadoop-2.6.0
  - ZOOKEEPER_VERSION=zookeeper-3.4.6
@@ -33,6 +34,7 @@ Credit to https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1 for the insp
  - HBASE_VERSION=hbase-"${HBASE_VERSION_NUM}-hadoop2"
  - HIVE_VERSION=hive-1.2.1
  - ES_VERSION=1.5.2
+ 
 ## Running an OpenSOC Topology
 
 After provisioning the cluster as described above, you can use some more fabric tasks to run a topology. Before you start, you should have the following:
