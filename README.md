@@ -16,39 +16,11 @@ Credit to https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1 for the insp
  Run `vagrant up`
  Run `fab vagrant postsetup`
 
-# Endpoints for different services. 
+* Endpoints for different services. 
  - HDFS - localhost:50070
  - Hbase - localhost:60010
  - Storm UI - localhost:8080      (currently disabled)
  - Elasticsearch - localhost:9200 (currently disabled)
-
-# Componets versions: 
- - JRE_RPM=jre-8u112-linux-x64.rpm
- - HADOOP_VERSION=hadoop-2.6.0
- - ZOOKEEPER_VERSION=zookeeper-3.4.6
- - KAFKA_SCALA_VERSION=2.9.2
- - KAFKA_VERSION_NUM=0.8.1.1
- - KAFKA_VERSION="kafka_${KAFKA_SCALA_VERSION}-${KAFKA_VERSION_NUM}"
- - STORM_VERSION=apache-storm-0.9.4
- - HBASE_VERSION_NUM=0.98.23
- - HBASE_VERSION=hbase-"${HBASE_VERSION_NUM}-hadoop2"
- - HIVE_VERSION=hive-1.2.1
- - ES_VERSION=1.5.2
- 
-## Running an OpenSOC Topology
-
-After provisioning the cluster as described above, you can use some more fabric tasks to run a topology. Before you start, you should have the following:
-
-* opensoc-streaming repo cloned locally
-* a copy of OpenSOC configs in resources/opensoc/OpenSOC_Configs
-
-Then you can run `fab vagrant start_topology:<topology_name>` which will do the following:
-
-* cd into the opensoc-streaming repo, and run `mvn clean package`
-* copy the newly built OpenSOC-Topologies.jar to resources/opensoc, where it will be avilable to the VMs
-* Submit `<topology_name>` and the topology jar to Nimbus
-
-If your topology is pulling data from Kafka, you can create a topic with the fabric task `fab vagrant create_topic:<topic>`
 
 ## Virtual Machines
 
@@ -98,3 +70,16 @@ Here is a list of what will be provisioned via vagrant and its current status:
 * GeoIP Enrichment Data - DONE (disabled)
 * OpenSOC UI (disabled)
 * OpenSOC Storm Topologies (disabled)
+
+* Componets versions: 
+ - JRE_RPM=jre-8u112-linux-x64.rpm
+ - HADOOP_VERSION=hadoop-2.6.0
+ - ZOOKEEPER_VERSION=zookeeper-3.4.6
+ - KAFKA_SCALA_VERSION=2.9.2
+ - KAFKA_VERSION_NUM=0.8.1.1
+ - KAFKA_VERSION="kafka_${KAFKA_SCALA_VERSION}-${KAFKA_VERSION_NUM}"
+ - STORM_VERSION=apache-storm-0.9.4
+ - HBASE_VERSION_NUM=0.98.23
+ - HBASE_VERSION=hbase-"${HBASE_VERSION_NUM}-hadoop2"
+ - HIVE_VERSION=hive-1.2.1
+ - ES_VERSION=1.5.2
