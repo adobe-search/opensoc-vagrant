@@ -13,8 +13,8 @@ Credit to https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1 for the insp
 
 ## Quick Start
 
- Run `vagrant up`
- Run `fab vagrant postsetup`
+ - Run `vagrant up`
+ - Run `fab vagrant postsetup`
 
 * Endpoints for different services. 
  - HDFS - localhost:50070
