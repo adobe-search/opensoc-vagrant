@@ -16,12 +16,12 @@ Credit to https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1 for the insp
  Run `fab vagrant postsetup`
 
  Below are endpoints for different services. See VagrantFile to see which services are enabled
-
  - HDFS - localhost:50070
  - Hbase - localhost:60010
- - #Storm UI - localhost:8080      (currently disabled)
- - #Elasticsearch - localhost:9200 (currently disabled)
+ - Storm UI - localhost:8080      (currently disabled)
+ - Elasticsearch - localhost:9200 (currently disabled)
 
+ Below are the componets versions: 
  - JRE_RPM=jre-8u112-linux-x64.rpm
  - HADOOP_VERSION=hadoop-2.6.0
  - ZOOKEEPER_VERSION=zookeeper-3.4.6
